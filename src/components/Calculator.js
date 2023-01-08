@@ -5,12 +5,24 @@ export default function Calculator() {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
 
-  console.log(watch("tilelenght"));
+  const onSubmit = (data) => {
+    // const { tilelenght, tilewidth, groutwidth, tilethickness } = data;
+    const { tilelenght, tilewidth, groutwidth, tilethickness } = data;
+    console.log(tilelenght);
+    const addition = Number(tilelenght) + Number(tilewidth);
+    const multiple = Number(tilelenght) * Number(tilewidth);
+    const division = addition / multiple;
+    const restOfMath =
+      division * Number(groutwidth) * Number(tilethickness) * 0.16;
+    console.log(addition);
+    console.log(multiple);
+    console.log(division);
+    console.log(restOfMath);
+  };
+
   return (
     <>
       <p>
@@ -20,24 +32,28 @@ export default function Calculator() {
         <p>Długość płytki [cm]:</p>
         <input
           type="number"
+          placeholder="Długość płytki"
           className="values"
-          {...register("tilelenght", { required: true, min: 1 })}
+          {...register("tilelenght", { required: true })}
         />
         <p>Szerokość płytki [cm]:</p>
         <input
           type="number"
+          placeholder="Szerokość płytki"
           className="values"
           {...register("tilewidth", { required: true })}
         />
         <p>Szerokość fugi [mm]:</p>
         <input
           type="number"
+          placeholder="Szerokość fugi"
           className="values"
           {...register("groutwidth", { required: true })}
         />
         <p>Grubość płytki [mm]:</p>
         <input
           type="number"
+          placeholder="Grubość płytki"
           className="values"
           {...register("tilethickness", { required: true })}
         />
