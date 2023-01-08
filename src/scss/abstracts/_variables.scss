@@ -1,0 +1,45 @@
+$color-font: #1A1126;
+$color-main: #8C796D;
+$color-main-lighter: #A69B8F;
+$color-light: #D9D8D7;
+$color-white: #F2F2F0;
+$color-purple-warning: #BC62CC;
+$color-green-success: #76A67C;
+$font-big: 'Bebas Neue', cursive;;
+$font-text: 'Lato', sans-serif;
+$font-weight-thin: 100;
+$font-weight-standard: 300;
+$font-weight-bold: 700;
+
+
+h2 {
+    font-size: 2rem;
+    font-family: $font-big;
+    @media (min-width: 768px) {
+        font-size: 2.8rem;
+    }
+    
+}
+
+p {
+    font-size: 1.4rem;
+    font-family: $font-text;
+    @media (min-width: 768px) {
+        font-size: 2rem;
+    }
+}
+
+a {
+    color: $color-font;
+    text-decoration: none;
+    font-family: $font-text;
+    font-weight: $font-weight-bold;        
+}
+
+
+  $xs: 512px;
+  $sm: 768px;
+  $md: 896px;
+  $lg: 1152px;
+  $xl: 1280px;
+
