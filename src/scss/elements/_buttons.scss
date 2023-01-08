@@ -2,17 +2,18 @@
     padding: .4rem .6rem;
     font-size: 1.4rem;
     text-align: center;
-    background-color: $color-button-blue;
-    color: $color-yellow;
+    background-color: $color-main;
+    color: $color-white;
     border: none;
-    font-weight: 300;
+    font-family: $font-text;
+    font-weight: $font-weight-thin;
     cursor: pointer;
     border-radius: 1rem;
 
     @media (min-width: $sm) {
         padding: 1rem 2rem;
         font-size: 2.4rem;
-        font-weight: 100;
+        font-weight: $font-weight-standard;
     }
     
 }
