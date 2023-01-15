@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
-import React, { useState } from 'react';
+import React, { useRef } from 'react';
+import ResultText from "./ResultText";
 
 export default function Calculator() {
   const {
@@ -7,7 +8,7 @@ export default function Calculator() {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const [ math, setMath ] = useState(0);
+  const groutCount = useRef(0)
 
   const Results = (data) => {
     const { tilelenght, tilewidth, groutwidth, tilethickness } = data;
@@ -20,7 +21,8 @@ export default function Calculator() {
     console.log(multiple);
     console.log(division);
     console.log(restOfMath);
-    setMath(restOfMath)
+    groutCount.current = restOfMath.toFixed(2)
+
   };
   
   
@@ -30,6 +32,7 @@ export default function Calculator() {
         Aby obliczyć ilość potrzebnego produktu należy podać poniższe wartości:
       </p>
       <form className="calculator" onSubmit={handleSubmit(Results)}>
+
         <p>Długość płytki [cm]:</p>
         <input
           type="number"
@@ -58,18 +61,15 @@ export default function Calculator() {
           className="values"
           {...register("tilethickness", { required: true })}
         />
-        {errors.tilelenght && <span>Nie podano długości płytki!</span>}
-        {errors.tilewidth && <span>Nie podano szerokości płytki!</span>}
-        {errors.groutwidth && <span>Nie podano szerokości fugi!</span>}
-        {errors.tilethickness && <span>Nie podano grubości płytki!</span>}
-
+        {errors.tilelenght && <span className="error">Nie podano długości płytki!</span>}
+        {errors.tilewidth && <span className="error">Nie podano szerokości płytki!</span>}
+        {errors.groutwidth && <span className="error">Nie podano szerokości fugi!</span>}
+        {errors.tilethickness && <span className="error">Nie podano grubości płytki!</span>}
+        
         <input className="button" type="submit" />
       </form>
-
-      <div className="results">
-            <p>{math}</p>
-            <p></p>
-        </div>
+      
+      <ResultText groutCountResult={groutCount} />
     </>
   );
 }

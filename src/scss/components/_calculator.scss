@@ -10,3 +10,13 @@
   font-family: $font-text;
   font-weight: $font-weight-bold;
 }
+
+.error {
+  color: $color-light;
+  font-family: $font-text;
+  background-color: $color-purple-warning;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  border-radius: .5rem;
+
+}
